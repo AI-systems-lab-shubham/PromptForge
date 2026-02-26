@@ -1,0 +1,192 @@
+[
+  {
+    "id": "1.1",
+    "phase": "phase-1",
+    "title": "Describe Your Idea",
+    "summary": "Describe what you want to build in plain English, including features, users, and problem.",
+    "why": "This creates a clear starting point so the AI can act like a builder and PM, not a guesser.",
+    "next": "Run this prompt, then move to 1.2 to get a plan and decisions.",
+    "tags": ["kickoff", "idea", "clarity"],
+    "prompt": "I want to build [DESCRIBE WHAT YOU WANT IN PLAIN ENGLISH].\n\nHere's what it should do:\n- [MAIN FEATURE 1]\n- [MAIN FEATURE 2]\n- [MAIN FEATURE 3]\n\nThe people who would use this are [DESCRIBE YOUR USERS].\n\nThe problem it solves is [DESCRIBE THE PROBLEM].\n\nI don't know how to code. Please help me build this step by step.\n"
+  },
+  {
+    "id": "1.2",
+    "phase": "phase-1",
+    "title": "Get a Project Plan",
+    "summary": "Ask for a simple plan: tech choices, build order, folder structure, time estimates, decisions.",
+    "why": "Plans prevent chaos and help you choose a build path that fits your constraints.",
+    "next": "Use the output to answer key decisions in 1.3.",
+    "tags": ["kickoff", "planning", "scope"],
+    "prompt": "Before we start building, give me:\n\n1. A simple explanation of what technologies we'll use and why (explain like I'm not technical)\n2. A list of everything we'll build, in order\n3. What the folder structure will look like\n4. How long each part might take\n5. What decisions I need to make before we start\n\nKeep explanations simple. No jargon without definitions.\n"
+  },
+  {
+    "id": "1.3",
+    "phase": "phase-1",
+    "title": "Make Key Decisions",
+    "summary": "Confirm your choices for each decision and ask for corrections if needed.",
+    "why": "Early decisions control complexity. Fixing them later is expensive and messy.",
+    "next": "Proceed into building with 2.1.",
+    "tags": ["kickoff", "decisions"],
+    "prompt": "For each decision you mentioned, here are my choices:\n\n- [DECISION 1]: I choose [OPTION]\n- [DECISION 2]: I choose [OPTION]\n- [DECISION 3]: I choose [OPTION]\n\nIf I'm making a bad choice, tell me why and suggest something better. Otherwise, let's proceed.\n"
+  },
+  {
+    "id": "2.1",
+    "phase": "phase-2",
+    "title": "Start Building",
+    "summary": "Tell the AI to build the first part and explain what it is doing and how to test it.",
+    "why": "You want working output, not theory. This forces file creation, tests, and expected results.",
+    "next": "Repeat with 2.2 until your MVP works, then add features with 2.3.",
+    "tags": ["build", "execution"],
+    "prompt": "Let's start building. Create the first part of the project now.\n\nAs you build:\n- Tell me what you're creating and why\n- Create all the files needed\n- Make sure it actually works (test it if possible)\n- Tell me what I should see when it's working\n\nGo ahead and build it now.\n"
+  },
+  {
+    "id": "2.2",
+    "phase": "phase-2",
+    "title": "Continue Building",
+    "summary": "Ask for the next part, or ask for fixes if something broke.",
+    "why": "Incremental builds reduce bugs and keep you in control of scope.",
+    "next": "Use 2.3 for a new feature and 2.4 when something looks wrong.",
+    "tags": ["build", "iteration"],
+    "prompt": "That worked. Build the next part now.\n\n[OR if something went wrong:]\n\nThat didn't work. Here's what happened: [DESCRIBE WHAT YOU SAW]\n\nPlease fix it and explain what went wrong.\n"
+  },
+  {
+    "id": "2.3",
+    "phase": "phase-2",
+    "title": "Request a Feature",
+    "summary": "Add a new feature using a clear user action and system response.",
+    "why": "Clear behavior descriptions prevent misbuilds and align with product thinking.",
+    "next": "Test the new feature, then proceed with 2.2 or quality prompts in Phase 4.",
+    "tags": ["build", "feature"],
+    "prompt": "I want to add a new feature:\n\n[DESCRIBE THE FEATURE IN PLAIN ENGLISH]\n\nWhen the user [DOES THIS ACTION], the app should [DO THIS RESPONSE].\n\nPlease build this now and show me how to test it.\n"
+  },
+  {
+    "id": "2.4",
+    "phase": "phase-2",
+    "title": "Something Looks Wrong",
+    "summary": "Describe what you expected vs what happened, attach screenshot, ask for diagnosis and fix.",
+    "why": "Good bug reports are a superpower. They speed up debugging and reduce back and forth.",
+    "next": "After the fix, re-test and continue building with 2.2.",
+    "tags": ["build", "debugging"],
+    "prompt": "Something doesn't look right.\n\nWhat I expected: [WHAT YOU THOUGHT WOULD HAPPEN]\nWhat actually happened: [WHAT YOU SAW]\n\nHere's a screenshot/description: [ATTACH OR DESCRIBE]\n\nPlease diagnose the problem and fix it.\n"
+  },
+  {
+    "id": "3.1",
+    "phase": "phase-3",
+    "title": "Explain What You Built",
+    "summary": "Ask for a plain-English explanation of files, connections, and where to edit.",
+    "why": "Understanding prevents dependency. You gain control over the project.",
+    "next": "Use 3.2 for line-by-line explanations and 3.3 to learn patterns.",
+    "tags": ["understanding", "learning"],
+    "prompt": "Explain what you just built like I'm a smart person who doesn't code.\n\n- What does each file do?\n- How do they connect to each other?\n- If I wanted to change [SPECIFIC THING], which file would I look at?\n"
+  },
+  {
+    "id": "3.2",
+    "phase": "phase-3",
+    "title": "Translate Code to English",
+    "summary": "Paste a file and ask for a line-by-line translation into plain English.",
+    "why": "This turns code into mental models so you can make better changes later.",
+    "next": "Use 3.3 to generalize patterns across projects.",
+    "tags": ["understanding", "code"],
+    "prompt": "Look at [FILE NAME OR PASTE CODE].\n\nExplain line by line what this does in plain English. Use analogies if helpful.\n"
+  },
+  {
+    "id": "3.3",
+    "phase": "phase-3",
+    "title": "Teach Me the Pattern",
+    "summary": "Ask why a pattern was chosen, when to use it, and what alternatives exist.",
+    "why": "Patterns help you repeat success and avoid brittle designs.",
+    "next": "Move into testing and quality in Phase 4.",
+    "tags": ["understanding", "patterns"],
+    "prompt": "I noticed you used [PATTERN/APPROACH] in this project.\n\n- Why did you choose this approach?\n- When would I use this pattern in other projects?\n- What's the alternative, and when would that be better?\n"
+  },
+  {
+    "id": "4.1",
+    "phase": "phase-4",
+    "title": "Test Everything",
+    "summary": "Ask the AI to test features, try weird inputs, find bugs, and fix issues.",
+    "why": "Testing is where MVPs become usable and earn real users.",
+    "next": "Improve design with 4.2 and run risk checks with 4.3.",
+    "tags": ["testing", "quality"],
+    "prompt": "Test all the features we've built so far.\n\nFor each feature:\n- Confirm it works as expected\n- Try to break it (what happens with weird inputs?)\n- Tell me about any bugs you find\n\nFix anything that's broken.\n"
+  },
+  {
+    "id": "4.2",
+    "phase": "phase-4",
+    "title": "Make It Look Better",
+    "summary": "Ask for a more modern and clean design without changing functionality.",
+    "why": "Better UI increases trust and adoption, even for simple MVPs.",
+    "next": "Check risks with 4.3 and then prepare to ship in Phase 5.",
+    "tags": ["design", "ux"],
+    "prompt": "The functionality works, but it looks [UGLY/BASIC/UNPROFESSIONAL].\n\nMake the design look more [MODERN/CLEAN/PROFESSIONAL/PLAYFUL].\n\nKeep all the functionality the same. Just improve the visual design.\n"
+  },
+  {
+    "id": "4.3",
+    "phase": "phase-4",
+    "title": "Check for Problems",
+    "summary": "Ask about security, scale, UX friction, and shortcuts you might regret later.",
+    "why": "This prevents hidden failures when real users show up.",
+    "next": "Move to Phase 5 to launch and share with users.",
+    "tags": ["risk", "quality"],
+    "prompt": "Review everything we've built and tell me:\n\n1. Are there any security issues I should know about?\n2. What would break if 1000 people used this at once?\n3. What's confusing or frustrating from a user's perspective?\n4. What did we cut corners on that I might regret later?\n\nBe honest, even if it means more work.\n"
+  },
+  {
+    "id": "5.1",
+    "phase": "phase-5",
+    "title": "Prepare for Launch",
+    "summary": "Ask for step-by-step deployment instructions, accounts, costs, and domain setup.",
+    "why": "Shipping creates users, and users create proof.",
+    "next": "Write docs with 5.2 and handoff materials with 5.3.",
+    "tags": ["shipping", "deployment"],
+    "prompt": "I want to share this with real users. What do I need to do?\n\nGive me:\n1. Step-by-step instructions for putting this online\n2. Any accounts I need to create\n3. Estimated costs (if any)\n4. How to set up a custom domain (if applicable)\n\nAssume I've never deployed anything before.\n"
+  },
+  {
+    "id": "5.2",
+    "phase": "phase-5",
+    "title": "Create Documentation",
+    "summary": "Ask for a README, run instructions, and a feature list for non-technical readers.",
+    "why": "Docs make your MVP credible and easier to share and maintain.",
+    "next": "Package for developer handoff using 5.3 if needed.",
+    "tags": ["shipping", "docs"],
+    "prompt": "Create simple documentation for this project:\n\n1. A README explaining what this is and how to use it\n2. Instructions for someone else to run this on their computer\n3. A list of all the features and how they work\n\nWrite it for someone who isn't technical.\n"
+  },
+  {
+    "id": "5.3",
+    "phase": "phase-5",
+    "title": "Package for Handoff",
+    "summary": "Ask for a technical summary, known issues, improvements, and redacted credentials list.",
+    "why": "This helps you collaborate with engineers and shows strong PM discipline.",
+    "next": "If stuck, use Emergency prompts.",
+    "tags": ["shipping", "handoff"],
+    "prompt": "I want to hand this project to a developer to continue working on it.\n\nCreate:\n1. A technical summary of how everything is built\n2. A list of known issues and shortcuts we took\n3. Suggestions for what to improve next\n4. Any credentials or API keys they'll need (redacted format)\n\nMake it professional enough that a developer would respect the work.\n"
+  },
+  {
+    "id": "E.1",
+    "phase": "emergency",
+    "title": "When You're Completely Stuck",
+    "summary": "Use this when you do not know what to do next.",
+    "why": "This resets clarity and forces the AI to propose the simplest path forward.",
+    "next": "After you are unstuck, return to the last build or test prompt.",
+    "tags": ["emergency"],
+    "prompt": "I'm stuck and not sure what to do next.\n\nHere's where we are: [DESCRIBE CURRENT STATE]\nHere's what I'm trying to accomplish: [DESCRIBE GOAL]\nHere's what's confusing me: [DESCRIBE CONFUSION]\n\nPlease get us unstuck. Suggest the simplest path forward.\n"
+  },
+  {
+    "id": "E.2",
+    "phase": "emergency",
+    "title": "When You Want to Start Over",
+    "summary": "Use this when the current approach is too complex or broken.",
+    "why": "Starting simpler is often faster than patching a fragile build.",
+    "next": "Re-run 1.2 and 1.3 for the simplified plan if needed.",
+    "tags": ["emergency"],
+    "prompt": "This isn't working. Let's start over with a simpler approach.\n\nKeep: [WHAT'S WORKING THAT WE SHOULD PRESERVE]\nRemove: [WHAT'S CAUSING PROBLEMS]\nSimplify: [WHAT'S TOO COMPLICATED]\n\nRebuild from scratch with these constraints.\n"
+  },
+  {
+    "id": "E.3",
+    "phase": "emergency",
+    "title": "When You Need to Pause",
+    "summary": "Use this to pause without losing context.",
+    "why": "This preserves state and makes it easy to resume later.",
+    "next": "When you return, follow the next steps listed in the summary.",
+    "tags": ["emergency"],
+    "prompt": "I need to stop for today.\n\nBefore I go, please:\n1. Save all our current files\n2. Summarize exactly where we are\n3. Tell me what we'll do next when I return\n4. List any decisions I should think about overnight\n"
+  }
+]
