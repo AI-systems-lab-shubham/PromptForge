@@ -290,3 +290,25 @@ label{display:flex; flex-direction:column; gap:6px; font-size: 13px; color: var(
   margin-bottom: 10px;
 }
 .modal__title{font-weight: 900; font-size: 18px}
+/* Template document viewer (modal) */
+.doc{
+  background: color-mix(in oklab, var(--panel), transparent 0%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius2);
+  padding: 14px;
+  box-shadow: var(--shadow);
+  line-height: 1.6;
+}
+
+.doc h1{font-size: 20px; margin: 10px 0}
+.doc h2{font-size: 16px; margin: 12px 0 8px}
+.doc h3{font-size: 14px; margin: 12px 0 8px}
+.doc p{margin: 8px 0; color: var(--text)}
+.doc ul, .doc ol{margin: 8px 0 8px 18px}
+.doc li{margin: 4px 0; color: var(--text)}
+
+/* Prevent modal content from becoming a giant wall */
+.modal__content{
+  max-height: 90vh;
+  overflow: auto;
+}
