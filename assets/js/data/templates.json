@@ -1,0 +1,30 @@
+[
+  {
+    "id": "tpl-prd",
+    "category": "PRD Lite",
+    "title": "PRD Lite (1-page)",
+    "summary": "A lightweight PRD that shows PM thinking without bloat.",
+    "body": "# PRD Lite\n\n## 1) Problem\n- What is the problem?\n- Who has it?\n- How often does it happen?\n\n## 2) User and Context\n- Primary user persona:\n- Trigger context:\n- Current workaround:\n\n## 3) Goal and Success Metrics\n- Activation metric:\n- Retention signal:\n- Value metric (time saved, errors reduced, etc.):\n\n## 4) MVP Scope\n### Must-have\n- \n- \n- \n\n### Non-goals (explicitly not doing)\n- \n- \n- \n\n## 5) User Journey (6 steps)\n1.\n2.\n3.\n4.\n5.\n6.\n\n## 6) Risks and Guardrails\n- Failure modes:\n- Guardrails:\n- Human review needed:\n\n## 7) Launch Plan\n- Beta users:\n- Feedback loop:\n- Next iteration plan:\n"
+  },
+  {
+    "id": "tpl-interviews",
+    "category": "Discovery",
+    "title": "10-minute Problem Interview Script",
+    "summary": "Fast discovery interviews that validate frequency and willingness.",
+    "body": "# 10-minute Problem Interview Script\n\n## Setup\n- Thanks for chatting. I’m researching a workflow problem, not pitching.\n- I’ll ask about your last experience, then I’ll shut up and listen.\n\n## Questions\n1) Walk me through the last time this happened.\n2) What did you do instead? (workaround)\n3) What part was the most annoying and why?\n4) How often does this happen? (daily, weekly, monthly)\n5) What have you tried that did not work?\n6) If a simple tool fixed this, what would it need to do in the first version?\n7) Would you try a lightweight MVP if I sent it this week?\n\n## Close\n- Can I follow up after I build a first draft?\n- Who else should I talk to that has the same problem?\n"
+  },
+  {
+    "id": "tpl-scope",
+    "category": "MVP",
+    "title": "MVP Scope Checklist",
+    "summary": "A checklist to prevent scope creep and keep the MVP shippable.",
+    "body": "# MVP Scope Checklist\n\n## Core promise\n- In one sentence: the MVP helps users ________.\n\n## One core workflow\n- User input:\n- System output:\n- Value moment:\n\n## Cut list\n- What you will NOT build in v1:\n- What you will defer until you have users:\n\n## Build constraints\n- Timebox (days/weeks):\n- Tools:\n- Data inputs you can reliably get:\n\n## Acceptance criteria\n- The MVP is done when:\n  - A user can complete the main workflow end to end\n  - The output is understandable and usable\n  - You can measure activation\n\n## Launch\n- Who are the first 10 users?\n- How will you invite them?\n- What feedback question will you ask after first use?\n"
+  },
+  {
+    "id": "tpl-metrics",
+    "category": "Metrics",
+    "title": "MVP Metrics Starter Sheet",
+    "summary": "A simple metrics plan you can track in a spreadsheet.",
+    "body": "# MVP Metrics Starter Sheet\n\n## Acquisition\n- Invites sent:\n- Landing page visits:\n- Signups:\n\n## Activation\n- Activation event definition:\n- Activated users:\n- Activation rate:\n\n## Retention\n- 7-day return definition:\n- Returning users (7-day):\n- Retention rate:\n\n## Value\n- Value metric definition (time saved, tasks completed, errors reduced):\n- Value achieved per user:\n\n## Feedback\n- Top 3 complaints:\n- Top 3 feature requests:\n- Biggest confusion point:\n"
+  }
+]
