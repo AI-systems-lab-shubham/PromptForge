@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Build Wizard • PromptForge</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <a class="brand__link" href="../index.html">PromptForge</a>
+      <span class="brand__tag">Build Wizard</span>
+    </div>
+
+    <nav class="topnav">
+      <a href="../guide/index.html">Guide</a>
+      <a class="active" href="../wizard/index.html">Build Wizard</a>
+      <a href="../library/index.html">Prompt Library</a>
+      <a href="../templates/index.html">Templates</a>
+    </nav>
+
+    <div class="topbar__actions">
+      <button class="btn btn--ghost" id="themeToggle" type="button">Theme</button>
+    </div>
+  </header>
+
+  <main class="layout3">
+    <aside class="sidebar">
+      <div class="sidebar__title">Wizard Progress</div>
+      <div id="wizardProgress" class="nav"></div>
+      <div class="sidebar__divider"></div>
+      <div class="sidebar__title">Jump to</div>
+      <div id="wizardJump" class="nav nav--muted"></div>
+    </aside>
+
+    <section class="content">
+      <div id="stepHeader" class="content__header"></div>
+
+      <div class="content__actions">
+        <button class="btn" id="prevStep" type="button">Back</button>
+        <button class="btn btn--primary" id="copyStep" type="button">Copy prompt</button>
+        <button class="btn" id="nextStep" type="button">Next</button>
+        <button class="btn btn--ghost" id="markDone" type="button">Mark done</button>
+      </div>
+
+      <div id="stepMeta" class="meta"></div>
+      <pre class="code"><code id="stepText"></code></pre>
+
+      <div class="card">
+        <h3>What to do after you run this</h3>
+        <p id="stepNext" class="muted"></p>
+      </div>
+    </section>
+
+    <aside class="panel">
+      <div class="panel__title">Project Profile</div>
+      <p class="muted small">Set once, reuse everywhere.</p>
+
+      <div class="form">
+        <label>Project idea <input id="pfIdea" /></label>
+        <label>Target users <input id="pfUsers" /></label>
+        <label>Problem <input id="pfProblem" /></label>
+        <label>Constraints <input id="pfConstraints" /></label>
+        <label>Success metric <input id="pfMetric" /></label>
+        <div class="row">
+          <button class="btn btn--primary" id="saveProfile" type="button">Save</button>
+          <button class="btn btn--ghost" id="clearProfile" type="button">Clear</button>
+        </div>
+      </div>
+
+      <div class="panel__divider"></div>
+
+      <div class="panel__title">Reset wizard</div>
+      <p class="muted small">Clears wizard step progress only.</p>
+      <button class="btn btn--ghost" id="resetWizard" type="button">Reset progress</button>
+    </aside>
+  </main>
+
+  <script type="module" src="../assets/js/common.js"></script>
+  <script type="module" src="../assets/js/pages/wizard.js"></script>
+</body>
+</html>
