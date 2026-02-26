@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Prompt Library • PromptForge</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <a class="brand__link" href="../index.html">PromptForge</a>
+      <span class="brand__tag">Prompt Library</span>
+    </div>
+
+    <nav class="topnav">
+      <a href="../guide/index.html">Guide</a>
+      <a href="../wizard/index.html">Build Wizard</a>
+      <a class="active" href="../library/index.html">Prompt Library</a>
+      <a href="../templates/index.html">Templates</a>
+    </nav>
+
+    <div class="topbar__actions">
+      <input class="search" id="searchInput" placeholder="Search prompts..." />
+      <button class="btn btn--ghost" id="themeToggle" type="button">Theme</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h1>Prompt Library</h1>
+      <p class="muted">Filter by phase or tag, then copy fast.</p>
+
+      <div class="row wrap">
+        <select id="phaseFilter" class="select">
+          <option value="">All phases</option>
+        </select>
+        <select id="tagFilter" class="select">
+          <option value="">All tags</option>
+        </select>
+        <button class="btn btn--ghost" id="clearFilters" type="button">Clear</button>
+      </div>
+    </section>
+
+    <section id="cards" class="cards"></section>
+
+    <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal__content">
+        <div class="modal__top">
+          <div>
+            <div id="modalTitle" class="modal__title"></div>
+            <div id="modalMeta" class="muted small"></div>
+          </div>
+          <button class="btn btn--ghost" id="closeModal" type="button">Close</button>
+        </div>
+
+        <div class="row">
+          <button class="btn btn--primary" id="copyModal" type="button">Copy prompt</button>
+          <button class="btn" id="bookmarkModal" type="button">Bookmark</button>
+        </div>
+
+        <pre class="code"><code id="modalText"></code></pre>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="../assets/js/common.js"></script>
+  <script type="module" src="../assets/js/pages/library.js"></script>
+</body>
+</html>
