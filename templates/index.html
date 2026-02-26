@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Templates • PromptForge</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <a class="brand__link" href="../index.html">PromptForge</a>
+      <span class="brand__tag">Templates</span>
+    </div>
+
+    <nav class="topnav">
+      <a href="../guide/index.html">Guide</a>
+      <a href="../wizard/index.html">Build Wizard</a>
+      <a href="../library/index.html">Prompt Library</a>
+      <a class="active" href="../templates/index.html">Templates</a>
+    </nav>
+
+    <div class="topbar__actions">
+      <button class="btn btn--ghost" id="themeToggle" type="button">Theme</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h1>PM Templates</h1>
+      <p class="muted">
+        These templates make your MVP look like real product work: clarity, scope control, and measurable outcomes.
+      </p>
+    </section>
+
+    <section id="templateCards" class="cards"></section>
+
+    <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal__content">
+        <div class="modal__top">
+          <div>
+            <div id="modalTitle" class="modal__title"></div>
+            <div id="modalMeta" class="muted small"></div>
+          </div>
+          <button class="btn btn--ghost" id="closeModal" type="button">Close</button>
+        </div>
+
+        <button class="btn btn--primary" id="copyModal" type="button">Copy template</button>
+        <pre class="code"><code id="modalText"></code></pre>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="../assets/js/common.js"></script>
+  <script type="module" src="../assets/js/pages/templates.js"></script>
+</body>
+</html>
