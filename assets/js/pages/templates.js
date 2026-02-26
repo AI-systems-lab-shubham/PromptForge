@@ -4,6 +4,65 @@ const TPL_PATH = "../assets/js/data/templates.json";
 let templates = [];
 let active = null;
 
+function escapeHtml(str) {
+  return str.replace(/[&<>"']/g, (c) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  }[c]));
+}
+
+// Minimal Markdown renderer for headings + bullets + numbered lists.
+// Keeps it simple and reliable for your template content.
+function mdToHtml(md) {
+  const lines = md.split("\n");
+  let html = "";
+  let inUl = false;
+  let inOl = false;
+
+  const closeLists = () => {
+    if (inUl) { html += "</ul>"; inUl = false; }
+    if (inOl) { html += "</ol>"; inOl = false; }
+  };
+
+  for (const raw of lines) {
+    const line = escapeHtml(raw);
+
+    // Headings
+    if (line.startsWith("### ")) { closeLists(); html += `<h3>${line.slice(4)}</h3>`; continue; }
+    if (line.startsWith("## "))  { closeLists(); html += `<h2>${line.slice(3)}</h2>`; continue; }
+    if (line.startsWith("# "))   { closeLists(); html += `<h1>${line.slice(2)}</h1>`; continue; }
+
+    // Ordered list "1. "
+    if (/^\d+\.\s/.test(line)) {
+      if (inUl) { html += "</ul>"; inUl = false; }
+      if (!inOl) { html += "<ol>"; inOl = true; }
+      html += `<li>${line.replace(/^\d+\.\s/, "")}</li>`;
+      continue;
+    }
+
+    // Unordered list "- "
+    if (line.startsWith("- ")) {
+      if (inOl) { html += "</ol>"; inOl = false; }
+      if (!inUl) { html += "<ul>"; inUl = true; }
+      html += `<li>${line.slice(2)}</li>`;
+      continue;
+    }
+
+    // Empty line adds spacing
+    if (line.trim() === "") { closeLists(); html += "<div style='height:10px'></div>"; continue; }
+
+    // Paragraph
+    closeLists();
+    html += `<p>${line}</p>`;
+  }
+
+  closeLists();
+  return html;
+}
+
 function render() {
   const el = document.getElementById("templateCards");
   el.innerHTML = templates.map(t => `
@@ -31,7 +90,10 @@ function openModal(id) {
 
   document.getElementById("modalTitle").textContent = active.title;
   document.getElementById("modalMeta").textContent = active.category;
-  document.getElementById("modalText").textContent = active.body;
+
+  const modalText = document.getElementById("modalText");
+  modalText.innerHTML = mdToHtml(active.body);
+
   document.getElementById("modal").classList.remove("hidden");
 }
 
